@@ -1,1 +1,5 @@
 *.sqlite
+/public/storage
+/vendor
+/.idea
+Homestead.json
