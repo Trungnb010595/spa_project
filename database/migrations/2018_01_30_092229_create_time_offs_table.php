@@ -15,6 +15,9 @@ class CreateTimeOffsTable extends Migration
     {
         Schema::create('time_offs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('emp_id');
+            $table->integer('hours');
+            $table->date('date');
             $table->timestamps();
         });
     }
