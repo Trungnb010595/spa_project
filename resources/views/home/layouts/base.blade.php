@@ -29,48 +29,22 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/mains') }}">
-                    Shop Online
+                <a class="navbar-brand" href="/customer/index">
+                    <h1>Shop Tattoo</h1>
                     {{--{{ config('app.name', 'Shop-Online') }}--}}
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav ">
                     <!-- Authentication Links -->
-
-                    <li><a href="{{ route('exchange.index') }}" class="btn btn-block">Giao dịch</a></li>
-                    <li><a href="{{ route('time_off.index') }}">NV nghỉ</a></li>
-                    <li><a href="">Nhân viên</a></li>
-                    <li><a href="">Khách Hàng</a></li>
-                    <li><a href="">Sản Phẩm</a></li>
-                    <li><a href="">Dịch vụ</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            123 <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href=""
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
-                                <form id="logout-form" action="" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-
+                    <li><a href="{{ route('customer.index') }}" class="btn btn-block">Thông Tin Khách Hàng</a></li>
+                    <li><a href="{{ route('employee.index') }}" class="btn btn-block">Thông Tin Nhân Viên</a></li>
+                    <li><a href="{{ route('exchange.index') }}">Thông Tin Giao Dịch</a></li>
+                    <li><a href="{{ route('time_off.index') }}">Thông Tin Chấm Công</a></li>
+                    <li><a href="{{ route('product.index') }}">Thông Tin Sản Phẩm</a></li>
+                    <li><a href="{{ route('service.index') }}">Thông Tin Dịch Vụ</a></li>
+                    <li><a href="">Thống Kê</a></li>
                 </ul>
             </div>
         </div>

@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <h1>Wellcome to Spa Club!!!</h1>
-    <h1>Wellcome to Spa Club!!!</h1>
-    <h1>Wellcome to Spa Club!!!</h1>
-    <h1>Wellcome to Spa Club!!!</h1>
+@endsection
+@section('script')
+
 @endsection
