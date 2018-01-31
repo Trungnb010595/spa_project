@@ -45,11 +45,12 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
 
-                    <li><a href="" class="btn btn-block">Brand</a></li>
-                    <li><a href="">Parent Category</a></li>
-                    <li><a href="">Child Category</a></li>
-                    <li><a href="">Product</a></li>
-                    <li><a href="">Mains</a></li>
+                    <li><a href="{{ route('exchange.index') }}" class="btn btn-block">Giao dịch</a></li>
+                    <li><a href="{{ route('time_off.index') }}">NV nghỉ</a></li>
+                    <li><a href="">Nhân viên</a></li>
+                    <li><a href="">Khách Hàng</a></li>
+                    <li><a href="">Sản Phẩm</a></li>
+                    <li><a href="">Dịch vụ</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             123 <span class="caret"></span>
