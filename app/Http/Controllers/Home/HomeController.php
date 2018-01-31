@@ -17,6 +17,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Employee;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -24,5 +25,10 @@ class HomeController extends Controller
     public function index(){
 //        return view('home.layouts.app');
         return view('home.index');
+    }
+
+    public function salary(){
+        $employees = Employee::all();
+        return view('home.salary', ['employees' => $employees]);
     }
 }
