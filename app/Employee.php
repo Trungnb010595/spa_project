@@ -16,7 +16,12 @@ class Employee extends Model
 
         //tinh bonus from exchange
         foreach ($exchanges as $exchange){
-            if($exchange->service_id){
+            $check_date = false;
+            if(date("m", strtotime($exchange->created_at)) == date('m')
+                && date("Y", strtotime($exchange->created_at)) == date('Y')){
+                $check_date = true;
+            }
+            if($exchange->service_id && $check_date){
                 $service = \App\Service::find($exchange->service_id);
                 $salary = $salary + $service->price*$service->bonus_for_emp/100;
             }
@@ -24,8 +29,12 @@ class Employee extends Model
 
         //thoi gian nghi
         foreach ($time_offs as $time_off){
-            $salary_one_hour = $emp->salary/(28*10);
-            $salary = $salary - $time_off->hours*$salary_one_hour;
+            if(date("m", strtotime($time_off->date)) == date('m')
+                && date("Y", strtotime($time_off->date)) == date('Y')){
+                $salary_one_hour = $emp->salary/(28*10);
+                $salary = $salary - $time_off->hours*$salary_one_hour;
+            }
+
         }
 
         return $salary;
