@@ -21,5 +21,11 @@ Route::group([], function (){
             Route::any('/edit','ExchangeController@edit')->name('exchange.edit');
             Route::get('/delete','ExchangeController@delete')->name('exchange.delete');
         });
+        Route::group(['prefix' => 'time_off'], function (){
+            Route::get('/index','TimeOffController@index')->name('time_off.index');
+            Route::any('/add','TimeOffController@add')->name('time_off.add');
+            Route::any('/edit','TimeOffController@edit')->name('time_off.edit');
+            Route::get('/delete','TimeOffController@delete')->name('time_off.delete');
+        });
     });
 });
