@@ -14,9 +14,9 @@
                 <table class="table table-bordered table-striped table-auto table-condensed">
                     <thead class="panel-title">
                     <th class="text-center">STT</th>
-                    <th class="text-center">Custommer name</th>
-                    <th class="text-center">Employee name</th>
-                    <th class="text-center">Product name</th>
+                    <th class="text-center">Tên khách hàng</th>
+                    <th class="text-center">Tên nhân viên</th>
+                    <th class="text-center">Tên sản phẩm</th>
                     <th class="text-center"></th>
                     </thead>
                     <tbody>
@@ -25,9 +25,9 @@
 
                         <tr>
                             <td class="text-center">{{ $index+1 }}</td>
-                            <td class="text-center">{{ $exchange->cus_id }}</td>
-                            <td class="text-center">{{ $exchange->emp_id }}</td>
-                            <td class="text-center">{{ $exchange->product_id }}</td>
+                            <td class="text-center">{{ \App\Customer::find($exchange->cus_id)->name }}</td>
+                            <td class="text-center">{{ \App\Employee::find($exchange->emp_id)->name  }}</td>
+                            <td class="text-center">{{ \App\Product::find($exchange->product_id)->name  }}</td>
                             <td class="text-center">
                                 <a href="{{route('exchange.edit',['id' => $exchange->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
