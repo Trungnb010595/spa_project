@@ -17,49 +17,49 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Employee;
+use App\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class ServiceController extends Controller
 {
     public function index(){
-        $employees = Employee::all();
-        return view('home.employee.index', ['employees' => $employees]);
+        $services = Service::all();
+        return view('home.service.index', ['services' => $services]);
     }
 
     public function add(Request $request)
     {
         if ($request->isMethod('GET')) {
-            return view('home.employee.add');
+            return view('home.service.add');
         } else {
-            $employee = new Employee();
-            $employee->name = $request->name;
-            $employee->salary = $request->salary;
-            $employee->note = $request->note;
-            $employee->save();
-            return redirect()->route('employee.index');
+            $service = new Service();
+            $service->name = $request->name;
+            $service->price = $request->price;
+            $service->bonus_for_emp = $request->bonus_for_emp;
+            $service->save();
+            return redirect()->route('service.index');
         }
     }
 
     public function edit(Request $request) {
         $id = $request->get('id');
-        $employee = Employee::find($id);
+        $service = Service::find($id);
         if($request->isMethod('GET')){
-            return view('home.employee.edit', ['employee' => $employee]);
+            return view('home.service.edit', ['service' => $service]);
         }
         else {
-            $employee->name = $request->name;
-            $employee->salary = $request->salary;
-            $employee->note = $request->note;
-            $employee->save();
-            return redirect()->route('employee.index');
+            $service->name = $request->name;
+            $service->price = $request->price;
+            $service->bonus_for_emp = $request->bonus_for_emp;
+            $service->save();
+            return redirect()->route('service.index');
         }
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $employee = Employee::find($id);
-        $employee->delete();
+        $service = Service::find($id);
+        $service->delete();
         return back();
     }
 }

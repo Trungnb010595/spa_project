@@ -8,12 +8,12 @@
 @section('content')
     <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
+            <div class="panel-heading">Sản Phẩm <a  class="pull-right btn btn-primary btn-xs" href="{{ route('product.add') }}">Thêm Mới Sản Phẩm</a></div>
             <div class="panel-body">
-                <form action="{{route('employee.add')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('product.add')}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <lable for="name">Tên Nhân Viên<span class="text-danger">*</span></lable>
+                        <lable for="name">Tên Sản Phẩm<span class="text-danger">*</span></lable>
                         <input placeholder="Enter name"
                                required
                                name="name"
@@ -22,10 +22,19 @@
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="salary">Lương Cơ Bản<span class="text-danger">*</span></lable>
+                        <lable for="price_import">Giá Nhập Vào<span class="text-danger">*</span></lable>
                         <input placeholder="Enter salary"
                                required
-                               name="salary"
+                               name="price_import"
+                               spellcheck="false"
+                               class="form-control"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <lable for="price_export">Giá Bán Ra<span class="text-danger">*</span></lable>
+                        <input placeholder="Enter salary"
+                               required
+                               name="price_export"
                                spellcheck="false"
                                class="form-control"
                         >

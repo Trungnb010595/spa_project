@@ -17,49 +17,49 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Service;
+use App\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class CustomerController extends Controller
 {
     public function index(){
-        $services = Service::all();
-        return view('home.service.index', ['services' => $services]);
+        $customers = Customer::all();
+        return view('home.customer.index', ['customers' => $customers]);
     }
 
     public function add(Request $request)
     {
         if ($request->isMethod('GET')) {
-            return view('home.service.add');
+            return view('home.customer.add');
         } else {
-            $service = new Service();
-            $service->name = $request->name;
-            $service->price = $request->price;
-            $service->bonus_for_emp = $request->bonus_for_emp;
-            $service->save();
-            return redirect()->route('service.index');
+            $customer = new Customer();
+            $customer->name = $request->name;
+            $customer->sdt = $request->sdt;
+            $customer->birthday = $request->birthday;
+            $customer->save();
+            return redirect()->route('customer.index');
         }
     }
 
     public function edit(Request $request) {
         $id = $request->get('id');
-        $service = Service::find($id);
+        $customer = Customer::find($id);
         if($request->isMethod('GET')){
-            return view('home.service.edit', ['service' => $service]);
+            return view('home.customer.edit', ['customer' => $customer]);
         }
         else {
-            $service->name = $request->name;
-            $service->price = $request->price;
-            $service->bonus_for_emp = $request->bonus_for_emp;
-            $service->save();
-            return redirect()->route('service.index');
+            $customer->name = $request->name;
+            $customer->sdt = $request->sdt;
+            $customer->birthday = $request->birthday;
+            $customer->save();
+            return redirect()->route('customer.index');
         }
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $service = Service::find($id);
-        $service->delete();
+        $customer = Customer::find($id);
+        $customer->delete();
         return back();
     }
 }

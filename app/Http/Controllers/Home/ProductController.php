@@ -17,49 +17,51 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Employee;
+use App\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class ProductController extends Controller
 {
     public function index(){
-        $employees = Employee::all();
-        return view('home.employee.index', ['employees' => $employees]);
+        $products = Product::all();
+        return view('home.product.index', ['products' => $products]);
     }
 
     public function add(Request $request)
     {
         if ($request->isMethod('GET')) {
-            return view('home.employee.add');
+            return view('home.product.add');
         } else {
-            $employee = new Employee();
-            $employee->name = $request->name;
-            $employee->salary = $request->salary;
-            $employee->note = $request->note;
-            $employee->save();
-            return redirect()->route('employee.index');
+            $product = new product();
+            $product->name = $request->name;
+            $product->price_import = $request->price_import;
+            $product->price_export = $request->price_export;
+            $product->note = $request->note;
+            $product->save();
+            return redirect()->route('product.index');
         }
     }
 
     public function edit(Request $request) {
         $id = $request->get('id');
-        $employee = Employee::find($id);
+        $product = Product::find($id);
         if($request->isMethod('GET')){
-            return view('home.employee.edit', ['employee' => $employee]);
+            return view('home.product.edit', ['product' => $product]);
         }
         else {
-            $employee->name = $request->name;
-            $employee->salary = $request->salary;
-            $employee->note = $request->note;
-            $employee->save();
-            return redirect()->route('employee.index');
+            $product->name = $request->name;
+            $product->price_import = $request->price_import;
+            $product->price_export = $request->price_export;
+            $product->note = $request->note;
+            $product->save();
+            return redirect()->route('product.index');
         }
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $employee = Employee::find($id);
-        $employee->delete();
+        $product = Product::find($id);
+        $product->delete();
         return back();
     }
 }

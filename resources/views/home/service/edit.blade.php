@@ -6,40 +6,40 @@
     {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
 @endsection
 @section('content')
-    <h1>Wellcome to Spa Club - Add Exchange!!!</h1>
     <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
+            <div class="panel-heading">Dịch Vụ <a  class="pull-right btn btn-primary btn-xs" href="{{ route('service.add') }}">Thêm Mới Dịch Vụ</a></div>
             <div class="panel-body">
-                <form action="{{route('employee.edit',['id' => $employee->id])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('service.edit',['id' => $service->id])}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <lable for="name">Tên Nhân Viên<span class="text-danger">*</span></lable>
+                        <lable for="name">Tên Dịch Vụ<span class="text-danger">*</span></lable>
                         <input placeholder="Enter name"
                                required
                                name="name"
                                spellcheck="false"
                                class="form-control"
-                               value="{{ $employee['name'] }}"
+                               value="{{ $service['name'] }}"
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="salary">Lương Cơ Bản<span class="text-danger">*</span></lable>
-                        <input placeholder="Enter salary"
+                        <lable for="price">Giá Dịch Vụ<span class="text-danger">*</span></lable>
+                        <input placeholder="Enter price"
                                required
-                               name="salary"
+                               name="price"
                                spellcheck="false"
                                class="form-control"
-                               value="{{ $employee['salary'] }}"
+                               value="{{ $service['price'] }}"
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="note">Ghi Chú<span class="text-danger">*</span></lable>
-                        <input placeholder="Enter note"
-                               name="note"
+                        <lable for="note">Phần Trăm Hoa Hồng(%)<span class="text-danger">*</span></lable>
+                        <input placeholder="Enter bonus"
+                               name="bonus_for_emp"
+                               required
                                spellcheck="false"
                                class="form-control"
-                               value="{{ $employee['note'] }}"
+                               value="{{ $service['bonus_for_emp'] }}"
                         >
                     </div>
                     <div class="form-group">

@@ -9,9 +9,9 @@
     <h1>Wellcome to Spa Club - Add Exchange!!!</h1>
     <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
+            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('product.add') }}">Thêm Mới Nhân Viên</a></div>
             <div class="panel-body">
-                <form action="{{route('employee.edit',['id' => $employee->id])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('product.edit',['id' => $product->id])}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
                         <lable for="name">Tên Nhân Viên<span class="text-danger">*</span></lable>
@@ -20,17 +20,27 @@
                                name="name"
                                spellcheck="false"
                                class="form-control"
-                               value="{{ $employee['name'] }}"
+                               value="{{ $product['name'] }}"
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="salary">Lương Cơ Bản<span class="text-danger">*</span></lable>
+                        <lable for="price_import">Giá Nhập Vào<span class="text-danger">*</span></lable>
                         <input placeholder="Enter salary"
                                required
-                               name="salary"
+                               name="price_import"
                                spellcheck="false"
                                class="form-control"
-                               value="{{ $employee['salary'] }}"
+                               value="{{ $product['price_import'] }}"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <lable for="price_export">Giá Bán Ra<span class="text-danger">*</span></lable>
+                        <input placeholder="Enter salary"
+                               required
+                               name="price_export"
+                               spellcheck="false"
+                               class="form-control"
+                               value="{{ $product['price_export'] }}"
                         >
                     </div>
                     <div class="form-group">
@@ -39,7 +49,7 @@
                                name="note"
                                spellcheck="false"
                                class="form-control"
-                               value="{{ $employee['note'] }}"
+                               value="{{ $product['note'] }}"
                         >
                     </div>
                     <div class="form-group">
