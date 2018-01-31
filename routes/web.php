@@ -15,5 +15,11 @@
 Route::group([], function (){
     Route::group(['namespace' => 'Home'], function (){
         Route::get('/','HomeController@index')->name('home');
+        Route::group(['prefix'=> 'product'],function (){
+            Route::get('/','ProductController@index')->name('product.list');
+            Route::get('/add','ProductController@index')->name('product.list');
+            Route::get('/','ProductController@index')->name('product.list');
+            Route::get('/','ProductController@index')->name('product.list');
+        });
     });
 });
