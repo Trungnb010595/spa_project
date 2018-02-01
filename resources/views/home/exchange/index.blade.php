@@ -27,10 +27,10 @@
 
                         <tr>
                             <td class="text-center">{{ $index+1 }}</td>
-                            <td class="text-center">{{ \App\Customer::find($exchange->cus_id)->name }}</td>
-                            <td class="text-center">{{ \App\Employee::find($exchange->emp_id)->name  }}</td>
-                            <td class="text-center">{{ \App\Product::find($exchange->product_id)->name  }}</td>
-                            <td class="text-center">{{ \App\Service::find($exchange->service_id)->name  }}</td>
+                            <td class="text-center">{{ $exchange->cus_id?\App\Customer::find($exchange->cus_id)->name:'' }}</td>
+                            <td class="text-center">{{ $exchange->emp_id?\App\Employee::find($exchange->emp_id)->name:''  }}</td>
+                            <td class="text-center">{{ $exchange->product_id?\App\Product::find($exchange->product_id)->name:''  }}</td>
+                            <td class="text-center">{{ $exchange->service_id?\App\Service::find($exchange->service_id)->name:''  }}</td>
                             <td class="text-center">
                                 <a href="{{route('exchange.edit',['id' => $exchange->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
