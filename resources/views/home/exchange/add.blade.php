@@ -29,8 +29,17 @@
                     </div>
                     <div class="form-group">
                         <select name="product_id" class="form-control">
+                            <option value=""></option>
                             @foreach($products as $product)
                                 <option value="{{$product->id}}">{{$product->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="service_id" class="form-control">
+                            <option value=""></option>
+                            @foreach($services as $service)
+                                <option value="{{$service->id}}" {{($service->service_id == $service->id)?'selected':''}}>{{$service->name}}</option>
                             @endforeach
                         </select>
                     </div>
