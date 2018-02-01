@@ -1,13 +1,14 @@
 @extends('home.layouts.base')
 @section('title')
-    <title>Spa CLub - Add Exchange</title>
+    <title>Spa CLub - Edit Product</title>
 @endsection
 @section('css')
     {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
 @endsection
 @section('content')
-    <h1>Wellcome to Spa Club - Add Exchange!!!</h1>
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <h2>Sửa Thông Tin Sản Phẩm - {{ $product->name }}</h2>
+    <hr>
+    <div class="col-lg-8 col-lg-offset-2">
         <div class="panel panel-primary ">
             <div class="panel-heading">Sản Phẩm <a  class="pull-right btn btn-primary btn-xs" href="{{ route('product.add') }}">Thêm Mới Sản Phẩm</a></div>
             <div class="panel-body">
@@ -24,7 +25,7 @@
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="salary">Lương Cơ Bản<span class="text-danger">*</span></lable>
+                        <lable for="salary">Giá Nhập Vào<span class="text-danger">*</span></lable>
                         <input placeholder="Enter salary"
                                required
                                name="price_import"
@@ -34,7 +35,7 @@
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="salary">Lương Cơ Bản<span class="text-danger">*</span></lable>
+                        <lable for="salary">Giá Bán Ra<span class="text-danger">*</span></lable>
                         <input placeholder="Enter salary"
                                required
                                name="price_export"
@@ -44,7 +45,7 @@
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="note">Ghi Chú<span class="text-danger">*</span></lable>
+                        <lable for="note">Ghi Chú</lable>
                         <input placeholder="Enter note"
                                name="note"
                                spellcheck="false"
