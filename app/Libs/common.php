@@ -46,6 +46,11 @@ function getMoneyReceived2(){
     return $money;
 }
 
-function getInterst(){
-
+function countSalary(){
+    $employees = \App\Employee::all();
+    $sum = 0;
+    foreach ($employees as $employee){
+        $sum = $sum + \App\Employee::getSalaryEmployee($employee->id);
+    }
+    return $sum;
 }

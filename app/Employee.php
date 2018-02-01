@@ -37,6 +37,6 @@ class Employee extends Model
 
         }
 
-        return $salary;
+        return (int)$salary;
     }
 }

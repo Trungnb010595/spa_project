@@ -14,11 +14,19 @@
             </div>
             <div class="panel-body">
                 <div class="form-group">
+                    <p style="margin-bottom: 0px;">
+                        <span>Tiền đã nhận: </span></span><label class="label-success "> {{number_format(getMoneyReceived())}} vnđ</label>
+                    </p>
+                    <p>
+                        <span>Tiền nhận(đã trừ tiền dịch vụ cho nhân viên): </span><label class="label-success "> {{number_format(getMoneyReceived2())}} vnđ</label>
+                    </p>
+                </div>
+                <div class="form-group">
                     <table class="table table-bordered table-striped table-auto table-condensed" style="width: 100%;">
                         <thead class="panel-title">
                         <th class="text-center">STT</th>
                         <th class="text-center">Tên nhân viên</th>
-                        <th class="text-center">Luowng</th>
+                        <th class="text-center">Lương cuối tháng</th>
                         </thead>
                         <tbody>
 
@@ -27,21 +35,17 @@
                             <tr>
                                 <td class="text-center">{{ $index+1 }}</td>
                                 <td class="text-center">{{ $employee->name }}</td>
-                                <td class="text-right">{{ number_format((int) \App\Employee::getSalaryEmployee($employee->id)) }} vnđ</td>
+                                <td class="text-right">{{ number_format( \App\Employee::getSalaryEmployee($employee->id)) }} vnđ</td>
                             </tr>
 
                         @endforeach
-
+                        <tr>
+                            <td class="text-center">Tổng</td>
+                            <td class="text-center"></td>
+                            <td class="text-right">{{ number_format(countSalary()) }} vnđ</td>
+                        </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="form-group">
-                    <p style="margin-bottom: 0px;">
-                        <label class="label-success ">Tiền đã nhận: {{number_format(getMoneyReceived())}} vnđ</label>
-                    </p>
-                    <p>
-                        <label class="label-success ">Tiền nhận(đã trừ tiền dịch vụ cho nhân viên): {{number_format(getMoneyReceived2())}} vnđ</label>
-                    </p>
                 </div>
             </div>
         </div>
