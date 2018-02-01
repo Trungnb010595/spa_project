@@ -17,7 +17,8 @@
                     <th class="text-center">Tên nhân viên</th>
                     <th class="text-center">Số giờ nghỉ</th>
                     <th class="text-center">Ngày</th>
-                    <th class="text-center"></th>
+                    <th class="text-center">Sửa</th>
+                    <th class="text-center">Xóa</th>
                     </thead>
                     <tbody>
 
@@ -32,6 +33,8 @@
                                 <a href="{{route('time_off.edit',['id' => $time_off->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
+                            </td>
+                            <td class="text-center">
                                 <a href="{{route('time_off.delete',['id' => $time_off->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
