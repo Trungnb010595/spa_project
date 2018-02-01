@@ -1,25 +1,56 @@
 <?php
-function getSalaryEmployee($emp_id){
-    $emp = \App\Employee::find($emp_id);
-    $exchanges = \App\Exchange::where('emp_id', $emp_id)->get();
-    $time_offs = \App\TimeOff::where('emp_id', $emp_id)->get();
-    $salary = $emp->salary;
-
-    //tinh bonus from exchange
+//tien nhan duoc chua tru di tien cong nhan vien
+function getMoneyReceived(){
+    $exchanges = \App\Exchange::all();
+    $money = 0;
     foreach ($exchanges as $exchange){
-        if($exchange->service_id){
-            $service = \App\Product::find($exchange->service_id);
-            $salary = $salary + $service->price*$service->bonus_for_emp/100;
+        $check_date = false;
+        if(date("m", strtotime($exchange->created_at)) == date('m')
+            && date("Y", strtotime($exchange->created_at)) == date('Y')){
+            $check_date = true;
+        }
+        if($check_date){
+            if($exchange->product_id){
+                $product = \App\Product::find($exchange->product_id);
+                $money = $money + $product->price_export - $product->price_import;
+            }
+            if($exchange->service_id){
+                $service = \App\Service::find($exchange->service_id);
+                $money = $money + $service->price;
+            }
         }
     }
-
-    //thoi gian nghi
-    foreach ($time_offs as $time_off){
-        if($time_off->emp_id){
-            $salary_one_hour = $emp->salary/(28*10);
-            $salary = $salary - $time_off->hours*$salary_one_hour;
+    return $money;
+}
+//Tien nhan duoc da tru di tien cong cua nhan vien
+function getMoneyReceived2(){
+    $exchanges = \App\Exchange::all();
+    $money = 0;
+    foreach ($exchanges as $exchange){
+        $check_date = false;
+        if(date("m", strtotime($exchange->created_at)) == date('m')
+            && date("Y", strtotime($exchange->created_at)) == date('Y')){
+            $check_date = true;
+        }
+        if($check_date){
+            if($exchange->product_id){
+                $product = \App\Product::find($exchange->product_id);
+                $money = $money + $product->price_export - $product->price_import;
+            }
+            if($exchange->service_id){
+                $service = \App\Service::find($exchange->service_id);
+                $money = $money + $service->price - $service->price*$service->bonus_for_emp/100;
+            }
         }
     }
+    return $money;
+}
 
-    return $salary;
+function countSalary(){
+    $employees = \App\Employee::all();
+    $sum = 0;
+    foreach ($employees as $employee){
+        $sum = $sum + \App\Employee::getSalaryEmployee($employee->id);
+    }
+    return $sum;
 }

@@ -1,15 +1,16 @@
 @extends('home.layouts.base')
 @section('title')
-    <title>Spa CLub - Add Exchange</title>
+    <title>Spa CLub - Edit Employee</title>
 @endsection
 @section('css')
     {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
 @endsection
 @section('content')
-    <h1>Wellcome to Spa Club - Add Exchange!!!</h1>
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <h2>Sửa Thông Tin Nhân Viên: {{ $employee->name }}</h2>
+    <hr>
+    <div class="col-lg-8 col-lg-offset-2">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
+            <div class="panel-heading">Sửa Thông Tin Nhân Viên <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
             <div class="panel-body">
                 <form action="{{route('employee.edit',['id' => $employee->id])}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -34,7 +35,7 @@
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="note">Ghi Chú<span class="text-danger">*</span></lable>
+                        <lable for="note">Ghi Chú</lable>
                         <input placeholder="Enter note"
                                name="note"
                                spellcheck="false"

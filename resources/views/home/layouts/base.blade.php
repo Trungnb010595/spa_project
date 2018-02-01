@@ -29,7 +29,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="/customer/index">
+                <a class="navbar-brand" href="{{ route('customer.index') }}">
                     <h1>Shop Tattoo</h1>
                     {{--{{ config('app.name', 'Shop-Online') }}--}}
                 </a>
@@ -38,12 +38,12 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav ">
                     <!-- Authentication Links -->
-                    <li><a href="{{ route('customer.index') }}" class="btn btn-block">Thông Tin Khách Hàng</a></li>
-                    <li><a href="{{ route('employee.index') }}" class="btn btn-block">Thông Tin Nhân Viên</a></li>
-                    <li><a href="{{ route('exchange.index') }}">Thông Tin Giao Dịch</a></li>
-                    <li><a href="{{ route('time_off.index') }}">Thông Tin Chấm Công</a></li>
-                    <li><a href="{{ route('product.index') }}">Thông Tin Sản Phẩm</a></li>
-                    <li><a href="{{ route('service.index') }}">Thông Tin Dịch Vụ</a></li>
+                    <li><a href="{{ route('customer.index') }}" class="btn btn-block">Khách Hàng</a></li>
+                    <li><a href="{{ route('employee.index') }}" class="btn btn-block">Nhân Viên</a></li>
+                    <li><a href="{{ route('exchange.index') }}">Giao Dịch</a></li>
+                    <li><a href="{{ route('time_off.index') }}">Chấm Công</a></li>
+                    <li><a href="{{ route('product.index') }}">Sản Phẩm</a></li>
+                    <li><a href="{{ route('service.index') }}">Dịch Vụ</a></li>
                     <li><a href="">Thống Kê</a></li>
                 </ul>
             </div>
