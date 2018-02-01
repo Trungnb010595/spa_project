@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 class ExchangeController extends Controller
 {
     public function index(){
-        $exchanges = Exchange::orderBy('created_at','DESC')->paginate(2);
+        $exchanges = Exchange::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
         return view('home.exchange.index', ['exchanges' => $exchanges]);
     }
     public function add(Request $request){
