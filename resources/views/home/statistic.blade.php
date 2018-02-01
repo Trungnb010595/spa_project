@@ -1,17 +1,16 @@
 @extends('home.layouts.base')
 @section('title')
-    <title>Spa CLub - Time Off</title>
+    <title>Spa CLub - Interest</title>
 @endsection
 @section('css')
     {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
 @endsection
 @section('content')
-    <h1>Wellcome to Spa Club - Time Off!!!</h1>
+    <h1>Thống Kê Thu Chi</h1>
+    <hr>
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch
-                <a  class="pull-right btn btn-primary btn-xs" href="{{ route('time_off.add') }}">Thêm giao dịch</a>
-            </div>
+            <div class="panel-heading">Bảng Thống Kê</div>
             <div class="panel-body">
                 <div class="form-group">
                     <p style="margin-bottom: 0px;">

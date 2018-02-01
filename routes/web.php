@@ -15,7 +15,7 @@
 Route::group([], function (){
     Route::group(['namespace' => 'Home'], function (){
         Route::get('/','HomeController@index')->name('home');
-        Route::get('/thong-ke','HomeController@statistic')->name('home.salary');
+        Route::get('/thong-ke','HomeController@statistic')->name('home.statistic');
         Route::group(['prefix' => 'exchange'], function (){
             Route::get('/index','ExchangeController@index')->name('exchange.index');
             Route::any('/add','ExchangeController@add')->name('exchange.add');
