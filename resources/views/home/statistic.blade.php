@@ -18,7 +18,7 @@
                             <span>Tiền từ sản phẩm (vnđ): </span>
                         </div>
                         <div class="col-xs-6">
-                            <label class="label-success "> {{number_format(getMoneyReceivedByProducts())}}</label>
+                            <label > {{number_format(getMoneyReceivedByProducts())}}</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -26,7 +26,7 @@
                             <span>Tiền từ dịch vụ (vnđ): </span>
                         </div>
                         <div class="col-xs-6">
-                            <label class="label-success "> {{number_format(getMoneyReceivedByServices())}}</label>
+                            <label> {{number_format(getMoneyReceivedByServices())}}</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -35,9 +35,9 @@
                         </div>
                         <div class="col-xs-6">
                             @if((date('d') == date('t')))
-                                <label class="label-success "> {{number_format(getMoneyReceived2() - countSalary()) }}</label>
+                                <label> {{number_format(getMoneyReceived2() - countSalary()) }}</label>
                             @else
-                                <label class="label-success "> Chưa cuối tháng ({{number_format(getMoneyReceived2() - countSalary()) }} vnđ)</label>
+                                <label> Chưa cuối tháng ({{number_format(getMoneyReceived2() - countSalary()) }} vnđ)</label>
                             @endif
                         </div>
                     </div>
