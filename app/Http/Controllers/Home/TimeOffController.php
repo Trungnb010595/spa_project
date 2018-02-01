@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
 class TimeOffController
 {
     public function index(){
-        $time_offs = TimeOff::all();
+        $time_offs = TimeOff::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
         return view('home.time_off.index', ['time_offs' => $time_offs]);
     }
     public function add(Request $request){

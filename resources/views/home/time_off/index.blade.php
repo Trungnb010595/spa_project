@@ -7,11 +7,11 @@
 @endsection
 @section('content')
     <h1>Wellcome to Spa Club - Time Off!!!</h1>
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-primary ">
             <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('time_off.add') }}">Thêm giao dịch</a></div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped table-auto table-condensed">
+                <table class="table table-bordered table-striped table-auto table-condensed full_width">
                     <thead class="panel-title">
                     <th class="text-center">STT</th>
                     <th class="text-center">Tên nhân viên</th>
@@ -42,6 +42,7 @@
 
                     </tbody>
                 </table>
+                {{ $time_offs->links() }}
             </div>
         </div>
     </div>

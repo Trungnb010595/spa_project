@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <h1>Wellcome to Spa Club - Add Time Off!!!</h1>
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-primary ">
             <div class="panel-heading">NV Nghỉ <a  class="pull-right btn btn-primary btn-xs" href="{{ route('time_off.add') }}">Thêm nhân viên nghỉ</a></div>
             <div class="panel-body">
