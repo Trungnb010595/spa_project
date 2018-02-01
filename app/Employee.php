@@ -31,7 +31,7 @@ class Employee extends Model
         foreach ($time_offs as $time_off){
             if(date("m", strtotime($time_off->date)) == date('m')
                 && date("Y", strtotime($time_off->date)) == date('Y')){
-                $salary_one_hour = $emp->salary/(28*10);
+                $salary_one_hour = $emp->salary/((date('t')-2)*10);
                 $salary = $salary - $time_off->hours*$salary_one_hour;
             }
 

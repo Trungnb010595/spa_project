@@ -17,8 +17,16 @@
                     <p style="margin-bottom: 0px;">
                         <span>Tiền đã nhận: </span></span><label class="label-success "> {{number_format(getMoneyReceived())}} vnđ</label>
                     </p>
-                    <p>
+                    <p style="margin-bottom: 0px;">
                         <span>Tiền nhận(đã trừ tiền dịch vụ cho nhân viên): </span><label class="label-success "> {{number_format(getMoneyReceived2())}} vnđ</label>
+                    </p>
+                    <p>
+                        <span>Lãi cuối tháng: </span>
+                        @if((date('d') == date('t')))
+                            <label class="label-success "> {{number_format(getMoneyReceived2() - countSalary()) }} vnđ</label>
+                        @else
+                            <label class="label-success "> Chưa cuối tháng</label>
+                        @endif
                     </p>
                 </div>
                 <div class="form-group">
