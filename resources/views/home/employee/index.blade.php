@@ -1,10 +1,13 @@
 @extends('home.layouts.base')
-
+@section('title')
+    <title>Spa CLub - List Employees</title>
+@endsection
 @section('content')
-
-    <div class="col-md-12 col-lg-12 ">
+    <h1>Danh Sách Nhân Viên</h1>
+    <hr>
+    <div class="col-lg-10 col-lg-offset-1">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Bảng Nhân Viên <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
+            <div class="panel-heading">Bảng Danh Sách Nhân Viên <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
             <div class="panel-body">
                 <table class="table table-bordered table-striped table-auto table-condensed">
                     <thead class="panel-title">

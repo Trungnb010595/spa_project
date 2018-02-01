@@ -1,8 +1,11 @@
 @extends('home.layouts.base')
-
+@section('title')
+    <title>Spa CLub - List Product</title>
+@endsection
 @section('content')
-
-    <div class="col-md-12 col-lg-12 ">
+    <h1>Danh Sách Sản Phẩm</h1>
+    <hr>
+    <div class="col-lg-10 col-lg-offset-1">
         <div class="panel panel-primary ">
             <div class="panel-heading">Bảng Sản Phẩm <a  class="pull-right btn btn-primary btn-xs" href="{{ route('product.add') }}">Thêm Mới Sản Phẩm</a></div>
             <div class="panel-body">
