@@ -62,4 +62,21 @@ class CustomerController extends Controller
         $customer->delete();
         return back();
     }
+
+    public function birthday(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            $current_month = date('m');
+        } else {
+            $current_month = $request->get('month');
+        }
+        $cus_birthdays = array();
+        $customers = Customer::all();
+        foreach ($customers as $customer) {
+            if(date("m", strtotime($customer->birthday)) == $current_month){
+                array_push($cus_birthdays, $customer);
+            }
+        }
+        return view('home.customer.birthday', ['cus_birthdays' => $cus_birthdays]);
+    }
 }

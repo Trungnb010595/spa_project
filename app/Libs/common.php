@@ -54,3 +54,39 @@ function countSalary(){
     }
     return $sum;
 }
+function getMoneyReceivedByServices(){
+    $exchanges = \App\Exchange::all();
+    $money = 0;
+    foreach ($exchanges as $exchange){
+        $check_date = false;
+        if(date("m", strtotime($exchange->created_at)) == date('m')
+            && date("Y", strtotime($exchange->created_at)) == date('Y')){
+            $check_date = true;
+        }
+        if($check_date){
+            if($exchange->service_id){
+                $service = \App\Service::find($exchange->service_id);
+                $money = $money + $service->price;
+            }
+        }
+    }
+    return $money;
+}
+function getMoneyReceivedByProducts(){
+    $exchanges = \App\Exchange::all();
+    $money = 0;
+    foreach ($exchanges as $exchange){
+        $check_date = false;
+        if(date("m", strtotime($exchange->created_at)) == date('m')
+            && date("Y", strtotime($exchange->created_at)) == date('Y')){
+            $check_date = true;
+        }
+        if($check_date){
+            if($exchange->product_id){
+                $product = \App\Product::find($exchange->product_id);
+                $money = $money + $product->price_export - $product->price_import;
+            }
+        }
+    }
+    return $money;
+}

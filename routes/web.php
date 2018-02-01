@@ -51,6 +51,7 @@ Route::group([], function (){
             Route::any('/add','CustomerController@add')->name('customer.add');
             Route::any('/edit','CustomerController@edit')->name('customer.edit');
             Route::get('/delete','CustomerController@delete')->name('customer.delete');
+            Route::any('/birthday','CustomerController@birthday')->name('customer.birthday');
         });
     });
 });
