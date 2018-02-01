@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     public function index(){
-        $employees = Employee::all();
+        $employees = Employee::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
         return view('home.employee.index', ['employees' => $employees]);
     }
 

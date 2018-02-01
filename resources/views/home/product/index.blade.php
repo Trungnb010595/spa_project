@@ -9,7 +9,7 @@
         <div class="panel panel-primary ">
             <div class="panel-heading">Bảng Sản Phẩm <a  class="pull-right btn btn-primary btn-xs" href="{{ route('product.add') }}">Thêm Mới Sản Phẩm</a></div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped table-auto table-condensed">
+                <table class="table table-bordered table-striped table-auto table-condensed full_width">
                     <thead class="panel-title">
                     <th class="text-center">Số Thứ Tự</th>
                     <th class="text-center">Tên Sản Phẩm</th>
@@ -42,6 +42,7 @@
 
                     </tbody>
                 </table>
+                <div class="text-right">{{ $products->links() }}</div>
             </div>
         </div>
     </div>

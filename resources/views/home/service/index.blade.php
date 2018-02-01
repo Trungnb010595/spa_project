@@ -9,7 +9,7 @@
         <div class="panel panel-primary ">
             <div class="panel-heading">Bảng Dịch Vụ<a  class="pull-right btn btn-primary btn-xs" href="{{ route('service.add') }}">Thêm Mới Dịch Vụ</a></div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped table-auto table-condensed">
+                <table class="table table-bordered table-striped table-auto table-condensed full_width">
                     <thead class="panel-title">
                     <th class="text-center">Số Thứ Tự</th>
                     <th class="text-center">Tên Dịch Vụ</th>
@@ -40,6 +40,7 @@
 
                     </tbody>
                 </table>
+                <div class="text-right">{{ $services->links() }}</div>
             </div>
         </div>
     </div>
