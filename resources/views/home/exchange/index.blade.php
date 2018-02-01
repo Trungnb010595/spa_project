@@ -6,10 +6,11 @@
     {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
 @endsection
 @section('content')
-    <h1>Wellcome to Spa Club - Exchange!!!</h1>
+    <h1>Danh Sách Giao Dịch</h1>
+    <hr>
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('exchange.add') }}">Thêm giao dịch</a></div>
+            <div class="panel-heading">Danh Sách Giao Dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('exchange.add') }}">Thêm Giao Dịch</a></div>
             <div class="panel-body">
                 <table class="table table-bordered table-striped table-auto table-condensed full_width">
                     <thead class="panel-title">
@@ -51,7 +52,7 @@
                     @endif
                     </tbody>
                 </table>
-                {{ $exchanges->links() }}
+                <div class="text-right">{{ $exchanges->links() }}</div>
             </div>
         </div>
     </div>

@@ -30,7 +30,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ route('customer.index') }}">
-                    <h1>Shop Tattoo</h1>
+                    <h1>Shop - Tùng Núi</h1>
                     {{--{{ config('app.name', 'Shop-Online') }}--}}
                 </a>
             </div>
@@ -44,7 +44,7 @@
                     <li><a href="{{ route('time_off.index') }}">Chấm Công</a></li>
                     <li><a href="{{ route('product.index') }}">Sản Phẩm</a></li>
                     <li><a href="{{ route('service.index') }}">Dịch Vụ</a></li>
-                    <li><a href="">Thống Kê</a></li>
+                    <li><a href="{{ route('home.statistic') }}">Thống Kê</a></li>
                 </ul>
             </div>
         </div>
