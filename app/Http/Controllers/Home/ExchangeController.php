@@ -20,8 +20,8 @@ use Illuminate\Http\Request;
 class ExchangeController extends Controller
 {
     public function index(){
-        $exchenges = Exchange::all();
-        return view('home.exchange.index', ['exchanges' => $exchenges]);
+        $exchanges = Exchange::orderBy('created_at','DESC')->paginate(2);
+        return view('home.exchange.index', ['exchanges' => $exchanges]);
     }
     public function add(Request $request){
         if ($request->isMethod('GET')) {

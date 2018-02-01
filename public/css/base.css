@@ -134,3 +134,6 @@ img.details{
 input.price-range{
     width: 55px;
 }
+.full_width{
+    width: 100%;
+}
