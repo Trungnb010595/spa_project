@@ -27,8 +27,8 @@
                         <input type="number" name="hours" min="1" placeholder="Nhập số giờ nghỉ" value="" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="date">Ngày Nghỉ <span class="text-danger">*</span>(tháng/ngày/năm)</label>
-                        <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+                        <label for="date">Ngày Nghỉ <span class="text-danger">*</span></label>
+                        <input type="date" name="date" value="" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Thêm">
