@@ -1,14 +1,16 @@
 @extends('home.layouts.base')
 @section('title')
-    <title>Spa CLub - Add Exchange</title>
+    <title>Spa CLub - Add Employee</title>
 @endsection
 @section('css')
     {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
 @endsection
 @section('content')
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <h2>Thêm Mới Nhân Viên</h2>
+    <hr>
+    <div class="col-lg-8 col-lg-offset-2">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Giao dịch <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
+            <div class="panel-heading">Thêm Mới Nhân Viên <a  class="pull-right btn btn-primary btn-xs" href="{{ route('employee.add') }}">Thêm Mới Nhân Viên</a></div>
             <div class="panel-body">
                 <form action="{{route('employee.add')}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -31,7 +33,7 @@
                         >
                     </div>
                     <div class="form-group">
-                        <lable for="note">Ghi Chú<span class="text-danger">*</span></lable>
+                        <lable for="note">Ghi Chú</lable>
                         <input placeholder="Enter note"
                                name="note"
                                spellcheck="false"
