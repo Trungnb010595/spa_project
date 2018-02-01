@@ -31,7 +31,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
+        $products = Product::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
         return view('home.product.index', ['products' => $products]);
     }
 
