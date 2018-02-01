@@ -39,4 +39,35 @@ class Employee extends Model
 
         return (int)$salary;
     }
+
+    public static function getMoneyServicePayForEmployees($emp_id){
+        $exchanges = \App\Exchange::all();
+        $money = 0;
+        foreach ($exchanges as $exchange){
+            $check_date = false;
+            if(date("m", strtotime($exchange->created_at)) == date('m')
+                && date("Y", strtotime($exchange->created_at)) == date('Y')){
+                $check_date = true;
+            }
+            if($check_date){
+                if($exchange->service_id && $exchange->emp_id == $emp_id){
+                    $service = \App\Service::find($exchange->service_id);
+                    $money = $service->price*$service->bonus_for_emp/100;
+                }
+            }
+        }
+        return $money;
+    }
+    public static function getSumHoursTimeOff($emp_id){
+        $time_offs = TimeOff::where(['emp_id' => $emp_id])->get();
+        $sum = 0;
+        foreach ($time_offs as $time_off){
+            if (date("m", strtotime($time_off->date)) == date('m')
+                && date("Y", strtotime($time_off->date)) == date('Y')){
+                $sum = $sum + $time_off->hours;
+            }
+        }
+
+        return $sum;
+    }
 }

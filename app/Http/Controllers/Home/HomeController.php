@@ -27,7 +27,7 @@ class HomeController extends Controller
     }
 
     public function statistic(){
-        $employees = Employee::all();
+        $employees = Employee::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
         return view('home.statistic', ['employees' => $employees]);
     }
 }
