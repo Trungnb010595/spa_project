@@ -9,7 +9,7 @@
         <div class="panel panel-primary ">
             <div class="panel-heading">Bảng Danh Sách Khách Hàng <a  class="pull-right btn btn-primary btn-xs" href="{{ route('customer.add') }}">Thêm Mới Khách Hàng</a></div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped table-auto table-condensed">
+                <table class="table table-bordered table-striped table-auto table-condensed full_width">
                     <thead class="panel-title">
                     <th class="text-center">Số Thứ Tự</th>
                     <th class="text-center">Tên Khách Hàng</th>
@@ -40,6 +40,7 @@
 
                     </tbody>
                 </table>
+                <div class="text-right">{{ $customers->links() }}</div>
             </div>
         </div>
     </div>

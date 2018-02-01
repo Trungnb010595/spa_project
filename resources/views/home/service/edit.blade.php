@@ -1,14 +1,13 @@
 @extends('home.layouts.base')
 @section('title')
-    <title>Spa CLub - Add Exchange</title>
-@endsection
-@section('css')
-    {{--<link rel="stylesheet" href="{{ asset('web/css/home.css') }}">--}}
+    <title>Spa CLub - Edit Service</title>
 @endsection
 @section('content')
-    <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <h2>Sửa Thông Tin Dịch Vụ - {{ $service->name }}</h2>
+    <hr>
+    <div class="col-lg-8 col-lg-offset-2">
         <div class="panel panel-primary ">
-            <div class="panel-heading">Dịch Vụ <a  class="pull-right btn btn-primary btn-xs" href="{{ route('service.add') }}">Thêm Mới Dịch Vụ</a></div>
+            <div class="panel-heading">Sửa Thông Tin Dịch Vụ Dịch Vụ <a  class="pull-right btn btn-primary btn-xs" href="{{ route('service.add') }}">Thêm Mới Dịch Vụ</a></div>
             <div class="panel-body">
                 <form action="{{route('service.edit',['id' => $service->id])}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
