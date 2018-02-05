@@ -35,9 +35,9 @@
                         </div>
                         <div class="col-xs-6">
                             @if((date('d') == date('t')))
-                                <label> {{number_format(getMoneyReceived2() - countSalary()) }}</label>
+                                <label> {{number_format(getMoneyReceived()) }}</label>
                             @else
-                                <label> Chưa cuối tháng ({{number_format(getMoneyReceived2() - countSalary()) }} vnđ)</label>
+                                <label> Chưa cuối tháng ({{number_format(getMoneyReceived()) }} vnđ)</label>
                             @endif
                         </div>
                     </div>
@@ -49,7 +49,8 @@
                         <th class="text-center">STT</th>
                         <th class="text-center">Tên nhân viên</th>
                         <th class="text-center">Tiền dịch vụ</th>
-                        <th class="text-center">Số giờ nghỉ (giờ)</th>
+                        <th class="text-center">Tiền sản phẩm vụ</th>
+                        <th class="text-center">Nghỉ (giờ)</th>
                         <th class="text-center">Lương cuối tháng (vnđ)</th>
                         </thead>
                         <tbody>
@@ -59,8 +60,9 @@
                             <tr>
                                 <td class="text-center">{{ $index+1 }}</td>
                                 <td class="text-center">{{ $employee->name }}</td>
-                                <td class="text-center">{{ number_format(\App\Employee::getMoneyServicePayForEmployees($employee->id)) }}</td>
-                                <td class="text-center">{{ number_format(\App\Employee::getSumHoursTimeOff($employee->id)) }}</td>
+                                <td class="text-center">{{ number_format(\App\Employee::getMoneyBonusFromService($employee->id)) }}</td>
+                                <td class="text-center">{{ number_format(\App\Employee::getMoneyBonusFromProduct($employee->id)) }}</td>
+                                <td class="text-center">{{ number_format(\App\Employee::calculateMoneyTimeOff($employee->id)).' ('. \App\Employee::getSumHoursTimeOff($employee->id) .')' }}</td>
                                 <td class="text-right">{{ number_format( \App\Employee::getSalaryEmployee($employee->id)) }}</td>
                             </tr>
 
@@ -70,7 +72,8 @@
                             <td class="text-center"></td>
                             <td class="text-center"></td>
                             <td class="text-center"></td>
-                            <td class="text-right">{{ number_format(countSalary()) }} vnđ</td>
+                            <td class="text-center"></td>
+                            <td class="text-right">{{ number_format(sumSalary()) }} vnđ</td>
                         </tr>
                         </tbody>
                     </table>

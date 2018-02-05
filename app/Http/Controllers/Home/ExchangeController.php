@@ -32,15 +32,13 @@ class ExchangeController extends Controller
             return view('home.exchange.add', ['customers' => $customers, 'employees' => $employees, 'products' => $products, 'services' => $services]);
         }
         else {
-            $cus_id = $request->get('cus_id');
-            $emp_id = $request->get('emp_id');
-            $product_id = $request->get('product_id');
-            $service_id = $request->get('service_id');
             $exchange = new Exchange();
-            $exchange->cus_id = $cus_id;
-            $exchange->emp_id = $emp_id;
-            $exchange->product_id = $product_id;
-            $exchange->service_id = $service_id;
+            $exchange->cus_id = $request->cus_id;
+            $exchange->emp_id = $request->emp_id;
+            $exchange->product_id = $request->product_id;
+            $exchange->service_id = $request->service_id;
+            $exchange->product_quantity = $request->product_quantity;
+            $exchange->service_quantity = $request->service_quantity;
             $exchange->save();
             return redirect()->route('exchange.index');
         }
@@ -56,14 +54,12 @@ class ExchangeController extends Controller
             return view('home.exchange.edit', ['exchange' => $exchange, 'customers' => $customers, 'employees' => $employees, 'products' => $products, 'services' => $services]);
         }
         else {
-            $cus_id = $request->get('cus_id');
-            $emp_id = $request->get('emp_id');
-            $product_id = $request->get('product_id');
-            $service_id = $request->get('service_id');
-            $exchange->cus_id = $cus_id;
-            $exchange->emp_id = $emp_id;
-            $exchange->product_id = $product_id;
-            $exchange->service_id = $service_id;
+            $exchange->cus_id = $request->cus_id;
+            $exchange->emp_id = $request->emp_id;
+            $exchange->product_id = $request->product_id;
+            $exchange->service_id = $request->service_id;
+            $exchange->product_quantity = $request->product_quantity;
+            $exchange->service_quantity = $request->service_quantity;
             $exchange->save();
             return redirect()->route('exchange.index');
         }
