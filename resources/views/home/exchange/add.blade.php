@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-6 max_width_100">
                             <label for="quantity">Số lượng </label>
-                            <input type="number" name="product_quantity" min="0" class="form-control">
+                            <input type="number" name="product_quantity" min="0" class="form-control" value="0">
                         </div>
                     </div>
                     <div class="form-group clearfix">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-6 max_width_100">
                             <label for="quantity">Số lượng </label>
-                            <input type="number" name="service_quantity" min="0" class="form-control">
+                            <input type="number" name="service_quantity" min="0" class="form-control" value="0">
                         </div>
                     </div>
                     <div class="form-group">
