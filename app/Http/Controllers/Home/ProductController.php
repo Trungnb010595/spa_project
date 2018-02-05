@@ -40,35 +40,39 @@ class ProductController extends Controller
         if ($request->isMethod('GET')) {
             return view('home.product.add');
         } else {
-            $products = new Product();
-            $products->name = $request->name;
-            $products->price_import = $request->price_import;
-            $products->price_export = $request->price_export;
-            $products->note = $request->note;
-            $products->save();
+            $product = new Product();
+            $product->name = $request->name;
+            $product->price_import = $request->price_import;
+            $product->price_export = $request->price_export;
+            $product->quantity = $request->quantity;
+            $product->bonus_for_emp = $request->bonus_for_emp;
+            $product->note = $request->note;
+            $product->save();
             return redirect()->route('product.index');
         }
     }
 
     public function edit(Request $request) {
         $id = $request->get('id');
-        $products = Product::find($id);
+        $product = Product::find($id);
         if($request->isMethod('GET')){
-            return view('home.product.edit', ['product' => $products]);
+            return view('home.product.edit', ['product' => $product]);
         }
         else {
-            $products->name = $request->name;
-            $products->price_import = $request->price_import;
-            $products->price_export = $request->price_export;
-            $products->note = $request->note;
-            $products->save();
+            $product->name = $request->name;
+            $product->price_import = $request->price_import;
+            $product->price_export = $request->price_export;
+            $product->quantity = $request->quantity;
+            $product->bonus_for_emp = $request->bonus_for_emp;
+            $product->note = $request->note;
+            $product->save();
             return redirect()->route('product.index');
         }
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $products = Product::find($id);
-        $products->delete();
+        $product = Product::find($id);
+        $product->delete();
         return back();
     }
 }

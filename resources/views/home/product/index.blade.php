@@ -15,6 +15,8 @@
                     <th class="text-center">Tên Sản Phẩm</th>
                     <th class="text-center">Giá Nhập Vào</th>
                     <th class="text-center">Giá Bán Ra</th>
+                    <th class="text-center">Số lượng</th>
+                    <th class="text-center">Hoa hồng(%)</th>
                     <th class="text-center">Ghi Chú</th>
                     <th class="text-center">Sửa</th>
                     <th class="text-center">Xóa</th>
@@ -27,6 +29,8 @@
                             <td class="text-center">{{ $product->name }}</td>
                             <td class="text-center">{{ $product->price_import }}</td>
                             <td class="text-center">{{ $product->price_export }}</td>
+                            <td class="text-center">{{ $product->quantity }}</td>
+                            <td class="text-center">{{ $product->bonus_for_emp }}</td>
                             <td class="text-center">{{ $product->note }}</td>
                             <td class="text-center">
                                 <a href="{{route('product.edit',['id' => $product->id])}}" class="btn btn-xs btn-success">

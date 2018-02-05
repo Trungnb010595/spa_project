@@ -28,6 +28,7 @@
                         <lable for="salary">Giá Nhập Vào<span class="text-danger">*</span></lable>
                         <input placeholder="Enter salary"
                                required
+                               type="number"
                                name="price_import"
                                spellcheck="false"
                                class="form-control"
@@ -38,10 +39,33 @@
                         <lable for="salary">Giá Bán Ra<span class="text-danger">*</span></lable>
                         <input placeholder="Enter salary"
                                required
+                               type="number"
                                name="price_export"
                                spellcheck="false"
                                class="form-control"
                                value="{{ $product['price_export'] }}"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <lable for="salary">Số lượng sản phẩm<span class="text-danger">*</span></lable>
+                        <input placeholder="Enter salary"
+                               required
+                               type="number" min="0"
+                               name="quantity"
+                               spellcheck="false"
+                               class="form-control"
+                               value="{{ $product['quantity'] }}"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <lable for="salary">Hoa hồng cho nhân viên (%)<span class="text-danger">*</span></lable>
+                        <input placeholder="Enter hoa hồng cho nhân viên "
+                               required
+                               type="number"
+                               name="bonus_for_emp"
+                               spellcheck="false"
+                               class="form-control"
+                               value="{{ $product['bonus_for_emp'] }}"
                         >
                     </div>
                     <div class="form-group">
