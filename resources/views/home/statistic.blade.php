@@ -31,6 +31,14 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-6" style="padding-left: 0px">
+                            <span>Tiền chi tiêu (vnđ): </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <label> {{number_format(getMoneyReceivedByConsumptions())}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6" style="padding-left: 0px">
                             <span>Lãi cuối tháng (vnđ) (đã trừ lương nhân viên): </span>
                         </div>
                         <div class="col-xs-6">
