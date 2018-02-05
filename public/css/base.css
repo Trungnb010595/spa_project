@@ -137,3 +137,6 @@ input.price-range{
 .full_width{
     width: 100%;
 }
+.max_width_100{
+    max-width: 100px;
+}

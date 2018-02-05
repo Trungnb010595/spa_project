@@ -30,23 +30,35 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="product_id">Mua Sản Phẩm </label>
-                        <select name="product_id" class="form-control">
-                            <option value=""></option>
-                            @foreach($products as $product)
-                                <option value="{{$product->id}}">{{$product->name}}</option>
-                            @endforeach
-                        </select>
+                    <div class="form-group clearfix">
+                        <div class="col-md-6" style="padding-left: 0px">
+                            <label for="product_id">Mua Sản Phẩm </label>
+                            <select name="product_id" class="form-control">
+                                <option value=""></option>
+                                @foreach($products as $product)
+                                    <option value="{{$product->id}}">{{$product->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6 max_width_100">
+                            <label for="quantity">Số lượng </label>
+                            <input type="number" name="product_quantity" min="0" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="service_id">Dịch Vụ </label>
-                        <select name="service_id" class="form-control">
-                            <option value=""></option>
-                            @foreach($services as $service)
-                                <option value="{{$service->id}}" {{($service->service_id == $service->id)?'selected':''}}>{{$service->name}}</option>
-                            @endforeach
-                        </select>
+                    <div class="form-group clearfix">
+                        <div class="col-md-6" style="padding-left: 0px">
+                            <label for="service_id">Dịch Vụ </label>
+                            <select name="service_id" class="form-control">
+                                <option value=""></option>
+                                @foreach($services as $service)
+                                    <option value="{{$service->id}}" {{($service->service_id == $service->id)?'selected':''}}>{{$service->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6 max_width_100">
+                            <label for="quantity">Số lượng </label>
+                            <input type="number" name="service_quantity" min="0" class="form-control">
+                        </div>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Thêm">
