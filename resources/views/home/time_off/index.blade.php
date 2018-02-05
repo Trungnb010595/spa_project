@@ -29,7 +29,7 @@
                             <td class="text-center">{{ $index+1 }}</td>
                             <td class="text-center">{{ \App\Employee::find($time_off->emp_id)->name }}</td>
                             <td class="text-center">{{ $time_off->hours  }}</td>
-                            <td class="text-center">{{ $time_off->date  }}</td>
+                            <td class="text-center">{{ date('m-d-Y', strtotime($time_off->date)) }}</td>
                             <td class="text-center">
                                 <a href="{{route('time_off.edit',['id' => $time_off->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>

@@ -29,7 +29,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ route('customer.index') }}">
+                <a class="navbar-brand" href="{{ route('customer.birthday') }}">
                     <h1>Shop - Tùng Núi</h1>
                     {{--{{ config('app.name', 'Shop-Online') }}--}}
                 </a>

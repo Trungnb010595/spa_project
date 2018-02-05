@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date">Ngày Nghỉ <span class="text-danger">*</span></label>
-                        <input type="date" name="date">
+                        <input type="date" name="date" value="" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Thêm">
