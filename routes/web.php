@@ -53,5 +53,11 @@ Route::group([], function (){
             Route::get('/delete','CustomerController@delete')->name('customer.delete');
             Route::any('/birthday','CustomerController@birthday')->name('customer.birthday');
         });
+        Route::group(['prefix' => 'consumption'], function (){
+            Route::get('/index','ConsumptionController@index')->name('consumption.index');
+            Route::any('/add','ConsumptionController@add')->name('consumption.add');
+            Route::any('/edit','ConsumptionController@edit')->name('consumption.edit');
+            Route::get('/delete','ConsumptionController@delete')->name('consumption.delete');
+        });
     });
 });
