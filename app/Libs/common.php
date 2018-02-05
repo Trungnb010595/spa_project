@@ -90,3 +90,18 @@ function getMoneyReceivedByProducts(){
     }
     return $money;
 }
+function getMoneyReceivedByConsumptions(){
+    $consumptions = \App\Consumption::all();
+    $money = 0;
+    foreach ($consumptions as $consumption){
+        $check_date = false;
+        if(date("m", strtotime($consumption->date)) == date('m')
+            && date("Y", strtotime($consumption->date)) == date('Y')){
+            $check_date = true;
+        }
+        if($check_date){
+            $money += $consumption->price;
+        }
+    }
+    return $money;
+}
