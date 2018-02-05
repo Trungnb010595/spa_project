@@ -26,7 +26,7 @@ function getMoneyReceivedByServices(){
         if($check_date){
             if($exchange->service_id && $exchange->service_quantity){
                 $service = \App\Service::find($exchange->service_id);
-                $money = $money + $service->price;
+                $money = $money + $service->price*$exchange->service_quantity;
             }
         }
     }
@@ -44,7 +44,7 @@ function getMoneyReceivedByProducts(){
         if($check_date){
             if($exchange->product_id && $exchange->product_quantity){
                 $product = \App\Product::find($exchange->product_id);
-                $money = $money + ($product->price_export - $product->price_import)*$exchange->product_id;
+                $money = $money + ($product->price_export - $product->price_import)*$exchange->product_quantity;
             }
         }
     }
