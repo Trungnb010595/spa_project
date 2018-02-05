@@ -49,6 +49,7 @@
                         <th class="text-center">STT</th>
                         <th class="text-center">Tên nhân viên</th>
                         <th class="text-center">Tiền dịch vụ</th>
+                        <th class="text-center">Tiền sản phẩm vụ</th>
                         <th class="text-center">Nghỉ (giờ)</th>
                         <th class="text-center">Lương cuối tháng (vnđ)</th>
                         </thead>
@@ -60,6 +61,7 @@
                                 <td class="text-center">{{ $index+1 }}</td>
                                 <td class="text-center">{{ $employee->name }}</td>
                                 <td class="text-center">{{ number_format(\App\Employee::getMoneyBonusFromService($employee->id)) }}</td>
+                                <td class="text-center">{{ number_format(\App\Employee::getMoneyBonusFromProduct($employee->id)) }}</td>
                                 <td class="text-center">{{ number_format(\App\Employee::calculateMoneyTimeOff($employee->id)).' ('. \App\Employee::getSumHoursTimeOff($employee->id) .')' }}</td>
                                 <td class="text-right">{{ number_format( \App\Employee::getSalaryEmployee($employee->id)) }}</td>
                             </tr>
@@ -67,6 +69,7 @@
                         @endforeach
                         <tr>
                             <td class="text-center">Tổng</td>
+                            <td class="text-center"></td>
                             <td class="text-center"></td>
                             <td class="text-center"></td>
                             <td class="text-center"></td>
