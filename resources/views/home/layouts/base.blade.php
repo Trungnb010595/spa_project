@@ -44,6 +44,7 @@
                     <li><a href="{{ route('time_off.index') }}">Chấm Công</a></li>
                     <li><a href="{{ route('product.index') }}">Sản Phẩm</a></li>
                     <li><a href="{{ route('service.index') }}">Dịch Vụ</a></li>
+                    <li><a href="{{ route('consumption.index') }}">Chi Tiêu</a></li>
                     <li><a href="{{ route('home.statistic') }}">Thống Kê</a></li>
                 </ul>
             </div>
