@@ -57,7 +57,7 @@
                         <th class="text-center">STT</th>
                         <th class="text-center">Tên nhân viên</th>
                         <th class="text-center">Tiền dịch vụ</th>
-                        <th class="text-center">Tiền sản phẩm vụ</th>
+                        <th class="text-center">Tiền sản phẩm</th>
                         <th class="text-center">Nghỉ (giờ)</th>
                         <th class="text-center">Lương cuối tháng (vnđ)</th>
                         </thead>
