@@ -18,6 +18,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Employee;
+use App\Exchange;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;

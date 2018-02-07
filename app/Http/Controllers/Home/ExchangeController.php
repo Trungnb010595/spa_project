@@ -61,6 +61,13 @@ class ExchangeController extends Controller
         else {
             $quantity_product_old = $exchange->product_quantity;
             $quantity_product_new = $request->product_quantity;
+
+            //tra lai so luong truoc edit
+            $product = Product::find($exchange->product_id);
+            $product->quantity = $product->quantity + $quantity_product_old;
+            $product->save();
+
+            //thuc hien tru so luiong
             $exchange->cus_id = $request->cus_id;
             $exchange->emp_id = $request->emp_id;
             $exchange->product_id = $request->product_id;
@@ -70,7 +77,8 @@ class ExchangeController extends Controller
             $exchange->save();
 
             $product = Product::find($exchange->product_id);
-            $product->quantity = $product->quantity - ($quantity_product_new - $quantity_product_old);
+            $product->quantity = $product->quantity - $quantity_product_new;
+
             $product->save();
 
             return redirect()->route('exchange.index');
