@@ -19,6 +19,8 @@ namespace App\Http\Controllers\Home;
 
 use App\Employee;
 use App\Http\Controllers\Controller;
+use App\Product;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -29,5 +31,12 @@ class HomeController extends Controller
     public function statistic(){
         $employees = Employee::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
         return view('home.statistic', ['employees' => $employees]);
+    }
+    public function ajaxGetQuantityProduct(Request $request){
+        $product = Product::find($request->product_id);
+        $quantity = $product->quantity;
+        $data = [];
+        $data['quantity'] = $quantity;
+        return response(json_encode($data));
     }
 }
