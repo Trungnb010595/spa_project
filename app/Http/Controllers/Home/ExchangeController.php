@@ -40,6 +40,11 @@ class ExchangeController extends Controller
             $exchange->product_quantity = $request->product_quantity;
             $exchange->service_quantity = $request->service_quantity;
             $exchange->save();
+
+            $product = Product::find($exchange->product_id);
+            $product->quantity = $product->quantity - $exchange->product_quantity;
+            $product->save();
+
             return redirect()->route('exchange.index');
         }
     }
@@ -54,6 +59,8 @@ class ExchangeController extends Controller
             return view('home.exchange.edit', ['exchange' => $exchange, 'customers' => $customers, 'employees' => $employees, 'products' => $products, 'services' => $services]);
         }
         else {
+            $quantity_product_old = $exchange->product_quantity;
+            $quantity_product_new = $request->product_quantity;
             $exchange->cus_id = $request->cus_id;
             $exchange->emp_id = $request->emp_id;
             $exchange->product_id = $request->product_id;
@@ -61,6 +68,11 @@ class ExchangeController extends Controller
             $exchange->product_quantity = $request->product_quantity;
             $exchange->service_quantity = $request->service_quantity;
             $exchange->save();
+
+            $product = Product::find($exchange->product_id);
+            $product->quantity = $product->quantity - ($quantity_product_new - $quantity_product_old);
+            $product->save();
+
             return redirect()->route('exchange.index');
         }
     }

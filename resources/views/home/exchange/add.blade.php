@@ -33,7 +33,7 @@
                     <div class="form-group clearfix">
                         <div class="col-md-6" style="padding-left: 0px">
                             <label for="product_id">Mua Sản Phẩm </label>
-                            <select name="product_id" class="form-control">
+                            <select name="product_id" class="form-control" onchange="onchangeInputProduct(this)">
                                 <option value=""></option>
                                 @foreach($products as $product)
                                     <option value="{{$product->id}}">{{$product->name}}</option>
@@ -67,4 +67,24 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        function onchangeInputProduct(ele) {
+            $.ajax({
+                url: "{{route('home.ajax.get_quantity_product')}}",
+                type: "get",
+                dateType: "json",
+                data: {
+                    product_id: ele.value
+                },
+                success: function (result) {
+                    var data = JSON.parse(result);
+                    console.log(data.quantity);
+                    $("input[name='product_quantity']").attr('value',1);
+                    $("input[name='product_quantity']").attr('max',data.quantity);
+                }
+            });
+        }
+    </script>
 @endsection
