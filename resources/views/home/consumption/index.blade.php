@@ -27,7 +27,7 @@
                             <td class="text-center">{{ $consumption->name }}</td>
                             <td class="text-center">{{ $consumption->price }}</td>
                             <td class="text-center">{{ $consumption->note }}</td>
-                            <td class="text-center">{{ date('m-d-Y', strtotime($consumption->date)) }}</td>
+                            <td class="text-center">{{ date('d-m-Y', strtotime($consumption->date)) }}</td>
                             <td class="text-center">
                                 <a href="{{route('consumption.edit',['id' => $consumption->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
