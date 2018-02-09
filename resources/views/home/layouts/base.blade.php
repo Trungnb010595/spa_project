@@ -39,12 +39,13 @@
                 <ul class="nav navbar-nav ">
                     <!-- Authentication Links -->
                     <li><a href="{{ route('customer.index') }}" class="btn btn-block">Khách Hàng</a></li>
-                    <li><a href="{{ route('employee.index') }}" class="btn btn-block">Nhân Viên</a></li>
                     <li><a href="{{ route('exchange.index') }}">Giao Dịch</a></li>
+                    <li><a href="{{ route('consumption.index') }}">Chi Tiêu</a></li>
                     <li><a href="{{ route('time_off.index') }}">Chấm Công</a></li>
+                    <li><a href="{{ route('customer.birthday') }}" class="btn btn-block">Search</a></li>
+                    <li><a href="{{ route('employee.index') }}" class="btn btn-block">Nhân Viên</a></li>
                     <li><a href="{{ route('product.index') }}">Sản Phẩm</a></li>
                     <li><a href="{{ route('service.index') }}">Dịch Vụ</a></li>
-                    <li><a href="{{ route('consumption.index') }}">Chi Tiêu</a></li>
                     <li><a href="{{ route('home.statistic') }}">Thống Kê</a></li>
                 </ul>
             </div>

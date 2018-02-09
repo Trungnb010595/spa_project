@@ -25,7 +25,7 @@
                             <td class="text-center">{{ $index+1 }}</td>
                             <td class="text-center">{{ $customer->name }}</td>
                             <td class="text-center">{{ $customer->sdt }}</td>
-                            <td class="text-center">{{ date('m-d-Y', strtotime($customer->birthday)) }}</td>
+                            <td class="text-center">{{ date('d-m-Y', strtotime($customer->birthday)) }}</td>
                             <td class="text-center">
                                 <a href="{{route('customer.edit',['id' => $customer->id])}}" class="btn btn-xs btn-success">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
