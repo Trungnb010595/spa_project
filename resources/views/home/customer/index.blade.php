@@ -9,6 +9,7 @@
         <div class="panel panel-primary ">
             <div class="panel-heading">Bảng Danh Sách Khách Hàng <a  class="pull-right btn btn-primary btn-xs" href="{{ route('customer.add') }}">Thêm Mới Khách Hàng</a></div>
             <div class="panel-body">
+                <div><button class="btn pull-right"><a href="{{ route('customer.birthday') }}" class="btn btn-block">Tìm Kiếm KH</a></button></div>
                 <table class="table table-bordered table-striped table-auto table-condensed full_width">
                     <thead class="panel-title">
                     <th class="text-center">Số Thứ Tự</th>
