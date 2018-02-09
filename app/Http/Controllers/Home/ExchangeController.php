@@ -25,7 +25,7 @@ class ExchangeController extends Controller
     }
     public function add(Request $request){
         if ($request->isMethod('GET')) {
-            $customers = Customer::orderBy('created_at','DESC');
+            $customers = Customer::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
             $employees = Employee::all();
             $products = Product::all();
             $services = Service::all();
