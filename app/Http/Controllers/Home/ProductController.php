@@ -25,13 +25,14 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
+        $products = Product::orderBy('created_at','DESC')->where('soft_deleted', 0)->paginate(NUMBER_PAGINATE);
         return view('home.product.index', ['products' => $products]);
     }
 
@@ -71,8 +72,9 @@ class ProductController extends Controller
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $product = Product::find($id);
-        $product->delete();
+        DB::table('products')
+            ->where('id', $id)
+            ->update(['soft_deleted' => 1]);
         return back();
     }
 }

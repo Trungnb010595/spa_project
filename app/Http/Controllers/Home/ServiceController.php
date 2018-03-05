@@ -20,11 +20,12 @@ namespace App\Http\Controllers\Home;
 use App\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
     public function index(){
-        $services = Service::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
+        $services = Service::orderBy('created_at','DESC')->where('soft_deleted', 0)->paginate(NUMBER_PAGINATE);
         return view('home.service.index', ['services' => $services]);
     }
 
@@ -58,8 +59,9 @@ class ServiceController extends Controller
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $service = Service::find($id);
-        $service->delete();
+        DB::table('services')
+            ->where('id', $id)
+            ->update(['soft_deleted' => 1]);
         return back();
     }
 }

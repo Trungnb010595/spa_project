@@ -20,11 +20,12 @@ namespace App\Http\Controllers\Home;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
     public function index(){
-        $customers = Customer::orderBy('birthday','DESC')->paginate(NUMBER_PAGINATE);
+        $customers = Customer::orderBy('birthday','DESC')->where('soft_deleted', 0)->paginate(NUMBER_PAGINATE);
         return view('home.customer.index', ['customers' => $customers]);
     }
 
@@ -58,8 +59,9 @@ class CustomerController extends Controller
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $customer = Customer::find($id);
-        $customer->delete();
+        DB::table('customers')
+            ->where('id', $id)
+            ->update(['soft_deleted' => 1]);
         return back();
     }
 

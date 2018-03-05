@@ -20,11 +20,12 @@ namespace App\Http\Controllers\Home;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
     public function index(){
-        $employees = Employee::orderBy('created_at','DESC')->paginate(NUMBER_PAGINATE);
+        $employees = Employee::orderBy('created_at','DESC')->where('soft_deleted', 0)->paginate(NUMBER_PAGINATE);
         return view('home.employee.index', ['employees' => $employees]);
     }
 
@@ -58,8 +59,9 @@ class EmployeeController extends Controller
     }
     public function delete(Request $request){
         $id = $request->get('id');
-        $employee = Employee::find($id);
-        $employee->delete();
+        DB::table('employees')
+            ->where('id', $id)
+            ->update(['soft_deleted' => 1]);
         return back();
     }
 }
